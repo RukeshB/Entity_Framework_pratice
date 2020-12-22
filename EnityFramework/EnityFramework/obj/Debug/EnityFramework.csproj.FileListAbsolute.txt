@@ -1,0 +1,17 @@
+C:\Users\Rukesh\source\repos\EnityFramework\EnityFramework\bin\Debug\EnityFramework.exe.config
+C:\Users\Rukesh\source\repos\EnityFramework\EnityFramework\bin\Debug\EnityFramework.exe
+C:\Users\Rukesh\source\repos\EnityFramework\EnityFramework\bin\Debug\EnityFramework.pdb
+C:\Users\Rukesh\source\repos\EnityFramework\EnityFramework\bin\Debug\EntityFramework.dll
+C:\Users\Rukesh\source\repos\EnityFramework\EnityFramework\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Rukesh\source\repos\EnityFramework\EnityFramework\bin\Debug\EntityFramework.xml
+C:\Users\Rukesh\source\repos\EnityFramework\EnityFramework\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Rukesh\source\repos\EnityFramework\EnityFramework\obj\Debug\EnityFramework.csprojAssemblyReference.cache
+C:\Users\Rukesh\source\repos\EnityFramework\EnityFramework\obj\Debug\EnityFramework.Form1.resources
+C:\Users\Rukesh\source\repos\EnityFramework\EnityFramework\obj\Debug\EnityFramework.Iteam.resources
+C:\Users\Rukesh\source\repos\EnityFramework\EnityFramework\obj\Debug\EnityFramework.Properties.Resources.resources
+C:\Users\Rukesh\source\repos\EnityFramework\EnityFramework\obj\Debug\EnityFramework.csproj.GenerateResource.cache
+C:\Users\Rukesh\source\repos\EnityFramework\EnityFramework\obj\Debug\EnityFramework.csproj.CoreCompileInputs.cache
+C:\Users\Rukesh\source\repos\EnityFramework\EnityFramework\obj\Debug\EnityFramework.csproj.CopyComplete
+C:\Users\Rukesh\source\repos\EnityFramework\EnityFramework\obj\Debug\EnityFramework.exe
+C:\Users\Rukesh\source\repos\EnityFramework\EnityFramework\obj\Debug\EnityFramework.pdb
+C:\Users\Rukesh\source\repos\EnityFramework\EnityFramework\obj\Debug\EnityFramework.catagory.resources

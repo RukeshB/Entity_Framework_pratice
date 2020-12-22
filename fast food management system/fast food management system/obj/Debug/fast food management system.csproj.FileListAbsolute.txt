@@ -1,0 +1,11 @@
+C:\Users\Rukesh\source\repos\fast food management system\fast food management system\bin\Debug\fast food management system.exe.config
+C:\Users\Rukesh\source\repos\fast food management system\fast food management system\bin\Debug\fast food management system.exe
+C:\Users\Rukesh\source\repos\fast food management system\fast food management system\bin\Debug\fast food management system.pdb
+C:\Users\Rukesh\source\repos\fast food management system\fast food management system\obj\Debug\fast food management system.csprojAssemblyReference.cache
+C:\Users\Rukesh\source\repos\fast food management system\fast food management system\obj\Debug\fast_food_management_system.Properties.Resources.resources
+C:\Users\Rukesh\source\repos\fast food management system\fast food management system\obj\Debug\fast food management system.csproj.GenerateResource.cache
+C:\Users\Rukesh\source\repos\fast food management system\fast food management system\obj\Debug\fast food management system.csproj.CoreCompileInputs.cache
+C:\Users\Rukesh\source\repos\fast food management system\fast food management system\obj\Debug\fast food management system.exe
+C:\Users\Rukesh\source\repos\fast food management system\fast food management system\obj\Debug\fast food management system.pdb
+C:\Users\Rukesh\source\repos\fast food management system\fast food management system\obj\Debug\fast_food_management_system.AddIteam.resources
+C:\Users\Rukesh\source\repos\fast food management system\fast food management system\obj\Debug\fast_food_management_system.Form1.resources
