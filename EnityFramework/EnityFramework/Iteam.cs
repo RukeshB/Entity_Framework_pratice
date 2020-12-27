@@ -352,10 +352,39 @@ namespace EnityFramework
         }
 
         Bitmap bmp;
-
+        private DataTable dtable;
         private void btn_print_Click(object sender, EventArgs e)
         {
-            printDocument1.Print();
+            ////printDocument1.Print();
+            //dtable = new DataTable();
+
+            ////Add columns
+            //dtable.Columns.Add("Food");
+            //dtable.Columns.Add("Size");
+            //dtable.Columns.Add("Quantity");
+            //dtable.Columns.Add("Rate");
+            //dtable.Columns.Add("Price");
+
+            //for(int i=0; i<10; i++)
+            //{
+            //    var row = dtable.NewRow();
+            //    row["Food"] = "Pizza";
+            //    row["Size"] = "small";
+            //    row["Quantity"] = "2";
+            //    row["Rate"] = "350";
+            //    row["price"] = "700";
+            //    dtable.Rows.Add(row);
+            //}
+
+            //Create an instance of our printer class
+            print printer = new print();
+            //Set the font we want to use
+            printer.PrinterFont = new Font("Verdana", 10);
+            //Set the TextToPrint property
+            printer.TextToPrint = "Rukesh";
+            //Issue print command
+            printer.Print();
+
         }
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)

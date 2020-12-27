@@ -94,6 +94,9 @@
     <Compile Include="Iteam.Designer.cs">
       <DependentUpon>Iteam.cs</DependentUpon>
     </Compile>
+    <Compile Include="print.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="size.cs">
