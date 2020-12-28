@@ -125,9 +125,17 @@ namespace EnityFramework
         //    return value;
         //}
 
-        //public void PrintDocument()
-        //{
-            
-        //}
+        public void PrintDocument(String text,Font pfont)
+        {
+            //Create an instance of our printer class
+            print printer = new print();
+            //Set the font we want to use
+            //printer.PrinterFont = new Font("Courier New", fontsize);
+            printer.PrinterFont = pfont;
+            //Set the TextToPrint property
+            printer.TextToPrint = text;
+            //Issue print command
+            printer.Print();
+        }
     }
 }

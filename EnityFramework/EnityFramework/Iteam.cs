@@ -376,14 +376,15 @@ namespace EnityFramework
             //    dtable.Rows.Add(row);
             //}
 
-            //Create an instance of our printer class
-            print printer = new print();
-            //Set the font we want to use
-            printer.PrinterFont = new Font("Verdana", 10);
-            //Set the TextToPrint property
-            printer.TextToPrint = "Rukesh";
-            //Issue print command
-            printer.Print();
+            print3 printer = new print3();
+            printer.NewPrint();
+            printer.SetFont("Courier New", 11, FontStyle.Regular);
+            printer.print("Rukesh Store");
+
+            printer.SetFont("Courier New", 11, FontStyle.Bold);
+            printer.print("Byasi, Bhaktapur");
+
+            printer.DoPrint();
 
         }
 
