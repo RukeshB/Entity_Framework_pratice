@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="fastfoodModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="category">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="catagory_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Foods" Relationship="Self.FK_Food_category" FromRole="category" ToRole="Food" />
+  </EntityType>
+  <EntityType Name="Food">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="catagory_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="category" Relationship="Self.FK_Food_category" FromRole="Food" ToRole="category" />
+    <NavigationProperty Name="sizes" Relationship="Self.FK_size_Food" FromRole="Food" ToRole="size" />
+  </EntityType>
+  <EntityType Name="size">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="food_id" Type="Int32" Nullable="false" />
+    <Property Name="size1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="price" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Food" Relationship="Self.FK_size_Food" FromRole="size" ToRole="Food" />
+  </EntityType>
+  <Association Name="FK_Food_category">
+    <End Role="category" Type="Self.category" Multiplicity="1" />
+    <End Role="Food" Type="Self.Food" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="category">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Food">
+        <PropertyRef Name="catagory_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_size_Food">
+    <End Role="Food" Type="Self.Food" Multiplicity="1" />
+    <End Role="size" Type="Self.size" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Food">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="size">
+        <PropertyRef Name="food_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="fastfoodEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="categories" EntityType="Self.category" />
+    <EntitySet Name="Foods" EntityType="Self.Food" />
+    <EntitySet Name="sizes" EntityType="Self.size" />
+    <AssociationSet Name="FK_Food_category" Association="Self.FK_Food_category">
+      <End Role="category" EntitySet="categories" />
+      <End Role="Food" EntitySet="Foods" />
+    </AssociationSet>
+    <AssociationSet Name="FK_size_Food" Association="Self.FK_size_Food">
+      <End Role="Food" EntitySet="Foods" />
+      <End Role="size" EntitySet="sizes" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

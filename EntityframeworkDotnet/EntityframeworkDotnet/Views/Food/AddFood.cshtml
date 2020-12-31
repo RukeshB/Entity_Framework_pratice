@@ -1,0 +1,53 @@
+﻿@model EntityframeworkDotnet.Context.size
+
+@{
+    ViewBag.Title = "AddFood";
+    List<SelectListItem> size = new List<SelectListItem>();
+    size.Add(new SelectListItem() { Text = "Small", Value = "small" });
+    size.Add(new SelectListItem() { Text = "Medium", Value = "medium" });
+    size.Add(new SelectListItem() { Text = "Large", Value = "large" });
+}
+
+<style>
+    .error{
+        color: red;
+    }
+</style>
+<h2>AddFood</h2>
+
+@using (Html.BeginForm("AddFood", "Food", FormMethod.Post))
+{
+    <div class="container">
+
+        @Html.HiddenFor(x=>x.id)
+        @Html.HiddenFor(x=>x.food_id)
+
+        <div class="form-group">
+            <label>Name</label>
+            @Html.ValidationMessageFor(x => x.Food.name, "", new { @class = "error"})
+            @Html.TextBoxFor(x => x.Food.name, new { @class = "form-control" })
+        </div>
+
+        <div>
+            <label>Catagory</label>
+            @Html.DropDownListFor(x => x.Food.catagory_id, ViewBag.category as SelectList, new { @class = "form-control" })
+
+        </div>
+
+        <div class="form-group">
+            <label>Size</label>
+            @Html.DropDownListFor(x => x.size1, size, "---Select Size---", new { @class = "form-control" });
+        </div>
+
+        <div class="form-group">
+            <label>Price</label>
+            @Html.ValidationMessageFor(x => x.price, "", new { @class = "error" })
+            @Html.TextBoxFor(x => x.price, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">submit</button>
+
+        </div>
+    </div>
+}

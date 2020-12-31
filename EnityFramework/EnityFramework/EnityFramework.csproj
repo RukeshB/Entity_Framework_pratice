@@ -98,6 +98,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="print3.cs" />
+    <Compile Include="print4.cs" />
     <Compile Include="printpratice2.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

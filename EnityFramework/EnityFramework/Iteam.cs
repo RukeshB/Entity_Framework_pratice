@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Entity;
 using System.Text.RegularExpressions;
+using System.Runtime.InteropServices;
 
 namespace EnityFramework
 {
@@ -355,35 +356,53 @@ namespace EnityFramework
         private DataTable dtable;
         private void btn_print_Click(object sender, EventArgs e)
         {
-            ////printDocument1.Print();
-            //dtable = new DataTable();
+            //printDocument1.Print();
+            dtable = new DataTable();
 
-            ////Add columns
-            //dtable.Columns.Add("Food");
-            //dtable.Columns.Add("Size");
-            //dtable.Columns.Add("Quantity");
-            //dtable.Columns.Add("Rate");
-            //dtable.Columns.Add("Price");
+            //Add columns
+            dtable.Columns.Add("Food");
+            dtable.Columns.Add("Size");
+            dtable.Columns.Add("Quantity");
+            dtable.Columns.Add("Rate");
+            dtable.Columns.Add("Price");
 
-            //for(int i=0; i<10; i++)
-            //{
-            //    var row = dtable.NewRow();
-            //    row["Food"] = "Pizza";
-            //    row["Size"] = "small";
-            //    row["Quantity"] = "2";
-            //    row["Rate"] = "350";
-            //    row["price"] = "700";
-            //    dtable.Rows.Add(row);
-            //}
+            for(int i=0; i<10; i++)
+            {
+                var row = dtable.NewRow();
+                row["Food"] = "Pizza";
+                row["Size"] = "small";
+                row["Quantity"] = "2";
+                row["Rate"] = "350";
+                row["price"] = "700";
+                dtable.Rows.Add(row);
 
-            print3 printer = new print3();
-            printer.NewPrint();
-            printer.SetFont("Courier New", 11, FontStyle.Regular);
+                row = dtable.NewRow();
+                row["Food"] = "sussage";
+                row["Size"] = " ";
+                row["Quantity"] = "5";
+                row["Rate"] = "50";
+                row["price"] = "250";
+                dtable.Rows.Add(row);
+            }
+
+           
+            printer p = new printer();
+            
+            printer.SetFont("Courier New", 14, FontStyle.Bold);
             printer.print("Rukesh Store");
 
-            printer.SetFont("Courier New", 11, FontStyle.Bold);
+            printer.SetFont("Courier New", 11, FontStyle.Regular);
             printer.print("Byasi, Bhaktapur");
 
+            printer.SetFont("Courier New", 11, FontStyle.Regular);
+            printer.print(String.Format("{0,-15}\t{1,-10}\t{2,-10}\t{3,-10}\t{4,-15}","Food","Size","Quantity","Rate","Price"));
+            printer.print("------------------------------------------------------");
+
+            for(int i =0; i < dtable.Rows.Count;i++)
+            {
+                printer.SetFont("Courier New", 11, FontStyle.Regular);
+                printer.print(String.Format("{0,-15}\t{1,-10}\t{2,-10}\t{3,-10}\t{4,-15}", dtable.Rows[i]["Food"].ToString(), dtable.Rows[i]["Size"].ToString(), dtable.Rows[i]["Quantity"].ToString(), dtable.Rows[i]["Rate"].ToString(), dtable.Rows[i]["price"].ToString()));
+            }
             printer.DoPrint();
 
         }

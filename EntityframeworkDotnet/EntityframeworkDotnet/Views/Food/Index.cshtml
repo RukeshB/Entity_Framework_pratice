@@ -1,0 +1,32 @@
+﻿@model List<EntityframeworkDotnet.Context.size>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="table table-hover">
+    <tr>
+        <th>Name</th>
+        <th>Catagory</th>
+        <th>Size</th>
+        <th>Price</th>
+        <th>Action</th>
+    </tr>
+
+    @foreach(var iteam in Model)
+    {
+        <tr>
+            <td>@iteam.Food.name</td>
+            <td>@iteam.Food.category.catagory_name</td>
+            <td>@iteam.size1</td>
+            <td>@iteam.price</td>
+           
+            <td>
+                <a href="@Url.Action("Food",new {@sizeid=iteam.id})" class="btn btn-success">Edit</a>
+                <a href="@Url.Action("Delete",new { @sizeid=iteam.id,@foodid=iteam.food_id})" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+    }
+</table>
+
