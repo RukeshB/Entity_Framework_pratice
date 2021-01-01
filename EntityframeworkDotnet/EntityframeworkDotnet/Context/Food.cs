@@ -11,8 +11,7 @@ namespace EntityframeworkDotnet.Context
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Food
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,12 +21,9 @@ namespace EntityframeworkDotnet.Context
         }
     
         public int id { get; set; }
-
-        [Required(ErrorMessage ="Required")]
         public string name { get; set; }
-
-        [Required(ErrorMessage = "Required")]
         public int catagory_id { get; set; }
+        public bool isDeleted { get; set; }
     
         public virtual category category { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

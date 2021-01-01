@@ -6,6 +6,7 @@
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="catagory_name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="isDeleted" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Food">
     <Key>
@@ -14,6 +15,7 @@
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="catagory_id" Type="int" Nullable="false" />
+    <Property Name="isDeleted" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="size">
     <Key>
@@ -23,6 +25,7 @@
     <Property Name="food_id" Type="int" Nullable="false" />
     <Property Name="size" Type="varchar" MaxLength="10" />
     <Property Name="price" Type="int" Nullable="false" />
+    <Property Name="isDeleted" Type="bit" Nullable="false" />
   </EntityType>
   <Association Name="FK_Food_category">
     <End Role="category" Type="Self.category" Multiplicity="1" />

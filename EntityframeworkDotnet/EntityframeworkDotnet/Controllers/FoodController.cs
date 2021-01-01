@@ -15,7 +15,7 @@ namespace EntityframeworkDotnet.Controllers
         // GET: Food
         public ActionResult Index()
         {
-            var res = dbentity.sizes.ToList();
+            var res = dbentity.sizes.Where(x=>x.isDeleted == false).ToList();
             return View(res);
         }
 
@@ -71,17 +71,20 @@ namespace EntityframeworkDotnet.Controllers
 
         public ActionResult Delete(int sizeid, int foodid)
         {
-            if (dbentity.sizes.Where(x => x.food_id == foodid).ToList().Count() == 1)
+            if (dbentity.sizes.Where(x => x.food_id == foodid && x.isDeleted == false).ToList().Count() == 1)
             {
-                var delfood = dbentity.Foods.Where(x => x.id == foodid).FirstOrDefault();
-                dbentity.Foods.Remove(delfood);
+                Food delfood = dbentity.Foods.Where(x => x.id == foodid && x.isDeleted ==  false).FirstOrDefault();
+                delfood.isDeleted = true;
+                //dbentity.Foods.Remove(delfood);
+                dbentity.Entry(delfood).State = EntityState.Modified;
             }
-            var delsize = dbentity.sizes.Where(x => x.id == sizeid).FirstOrDefault();
-            dbentity.sizes.Remove(delsize);
-            dbentity.SaveChanges();
+            size delsize = dbentity.sizes.Where(x => x.id == sizeid && x.isDeleted == false).FirstOrDefault();
+            delsize.isDeleted = true;
+            //dbentity.sizes.Remove(delsize);
+            dbentity.Entry(delsize).State = EntityState.Modified;
 
-            var res = dbentity.sizes.ToList();
-            return View("Index", res);
+            dbentity.SaveChanges();
+            return RedirectToAction("Index");
         }
 
     }

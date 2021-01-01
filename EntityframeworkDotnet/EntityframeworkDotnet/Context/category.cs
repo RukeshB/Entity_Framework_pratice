@@ -11,8 +11,7 @@ namespace EntityframeworkDotnet.Context
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class category
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,9 +21,8 @@ namespace EntityframeworkDotnet.Context
         }
     
         public int id { get; set; }
-
-        
         public string catagory_name { get; set; }
+        public bool isDeleted { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Food> Foods { get; set; }

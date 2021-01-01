@@ -5,11 +5,11 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="6408985df5874eb7a01c52311c4da312" Name="Diagram1">
-        <EntityTypeShape EntityType="fastfoodModel.category" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="fastfoodModel.Food" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="fastfoodModel.size" Width="1.5" PointX="5.25" PointY="0.875" IsExpanded="true" />
-        <AssociationConnector Association="fastfoodModel.FK_Food_category" ManuallyRouted="false" />
-        <AssociationConnector Association="fastfoodModel.FK_size_Food" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="fastfoodModel.category" Width="1.5" PointX="0.75" PointY="1.125" />
+        <EntityTypeShape EntityType="fastfoodModel.Food" Width="1.5" PointX="3" PointY="0.875" />
+        <EntityTypeShape EntityType="fastfoodModel.size" Width="1.5" PointX="5.25" PointY="0.875" />
+        <AssociationConnector Association="fastfoodModel.FK_Food_category" />
+        <AssociationConnector Association="fastfoodModel.FK_size_Food" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

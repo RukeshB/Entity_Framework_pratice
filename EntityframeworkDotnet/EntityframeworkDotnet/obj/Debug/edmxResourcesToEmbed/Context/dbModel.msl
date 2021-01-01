@@ -4,27 +4,30 @@
     <EntitySetMapping Name="categories">
       <EntityTypeMapping TypeName="fastfoodModel.category">
         <MappingFragment StoreEntitySet="category">
-          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
           <ScalarProperty Name="catagory_name" ColumnName="catagory_name" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Foods">
       <EntityTypeMapping TypeName="fastfoodModel.Food">
         <MappingFragment StoreEntitySet="Food">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
           <ScalarProperty Name="catagory_id" ColumnName="catagory_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="sizes">
       <EntityTypeMapping TypeName="fastfoodModel.size">
         <MappingFragment StoreEntitySet="size">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="food_id" ColumnName="food_id" />
-          <ScalarProperty Name="size1" ColumnName="size" />
+          <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
           <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="size1" ColumnName="size" />
+          <ScalarProperty Name="food_id" ColumnName="food_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

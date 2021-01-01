@@ -11,16 +11,14 @@ namespace EntityframeworkDotnet.Context
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class size
     {
         public int id { get; set; }
         public int food_id { get; set; }
         public string size1 { get; set; }
-
-        [Required(ErrorMessage = "Required")]
         public int price { get; set; }
+        public bool isDeleted { get; set; }
     
         public virtual Food Food { get; set; }
     }
