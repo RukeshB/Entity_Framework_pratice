@@ -9,7 +9,7 @@
 }
 
 <style>
-    .error{
+    .error {
         color: red;
     }
 </style>
@@ -19,12 +19,12 @@
 {
     <div class="container">
 
-        @Html.HiddenFor(x=>x.id)
-        @Html.HiddenFor(x=>x.food_id)
+        @Html.HiddenFor(x => x.id)
+        @Html.HiddenFor(x => x.food_id)
 
         <div class="form-group">
             <label>Name</label>
-            @Html.ValidationMessageFor(x => x.Food.name, "", new { @class = "error"})
+            @Html.ValidationMessageFor(x => x.Food.name, "", new { @class = "error" })
             @Html.TextBoxFor(x => x.Food.name, new { @class = "form-control" })
         </div>
 
@@ -34,20 +34,54 @@
 
         </div>
 
-        <div class="form-group">
-            <label>Size</label>
-            @Html.DropDownListFor(x => x.size1, size, "---Select Size---", new { @class = "form-control" })
+        <div id="size">
+            <div class="form-group">
+                <label>Size</label>
+                @Html.DropDownListFor(x => x.size1, size, "---Select Size---", new { @class = "form-control" })
+            </div>
+
+            <div class="form-group">
+                <label>Price</label>
+                @Html.ValidationMessageFor(x => x.price, "", new { @class = "error" })
+                @Html.TextBoxFor(x => x.price, new { @class = "form-control" })
+
+            </div>
         </div>
 
-        <div class="form-group">
-            <label>Price</label>
-            @Html.ValidationMessageFor(x => x.price, "", new { @class = "error" })
-            @Html.TextBoxFor(x => x.price, new { @class = "form-control" })
-        </div>
 
         <div class="form-group">
             <button type="submit" class="btn btn-primary">submit</button>
-
+            @* <button class="btn btn-primary" id="append" name="append">More Size</button>*@
+            <input type="button" value="More Size" name="append" id="append" class="btn" />
         </div>
     </div>
+}
+
+@section scripts
+{
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            $("#append").click(function () {
+                $("#size").append('<div class="form-group">\
+                                    <label>Size</label>\
+                                    <select name="size" class = "form-control">\
+                                        < option value = "small" > Small</option >\
+                                        <option value="medium">Medium</option>\
+                                        <option value="large">Large</option>\
+                                    </select >\
+                                </div>\
+                                <div class="form-group">\
+                                    <label>Price</label>\
+                                    <input type="text" name="price" class = "form-control"/>\
+                                 </div>'
+                                 );
+                return false;
+            });
+
+            jQuery('.remove_this').live('click', function () {
+                jQuery(this).parent().remove();
+                return false;
+            });
+        });
+    </script>
 }
