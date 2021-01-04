@@ -1,4 +1,4 @@
-﻿@model List<EntityframeworkDotnet.Context.size>
+﻿@model List<EntityframeworkDotnet.Context.Food>
 @{
     ViewBag.Title = "Index";
 }
@@ -17,14 +17,32 @@
     @foreach(var iteam in Model)
     {
         <tr>
-            <td>@iteam.Food.name</td>
-            <td>@iteam.Food.category.catagory_name</td>
-            <td>@iteam.size1</td>
-            <td>@iteam.price</td>
+            <td>@iteam.name</td>
+            <td>@iteam.category.catagory_name</td>
+            <td>
+                <ol>
+                    @foreach (var size in iteam.sizes)
+                    {
+                        if (size.size1 != null || size.size1 != "")
+                        {
+                            <li>@size.size1</li>
+                        }
+                    }
+                </ol>
+            
+            </td>
+            <td>
+                <ol>
+                    @foreach (var size in iteam.sizes)
+                    {
+                        <li>@size.price</li>
+                    }
+                </ol>
+            </td>
            
             <td>
-                <a href="@Url.Action("Food",new {@sizeid=iteam.id})" class="btn btn-success">Edit</a>
-                <a href="@Url.Action("Delete",new { @sizeid=iteam.id,@foodid=iteam.food_id})" class="btn btn-danger">Delete</a>
+                <a href="@Url.Action("Food",new {foodid=iteam.id})" class="btn btn-success">Edit</a>
+                <a href="@Url.Action("Delete",new { @foodid=iteam.id})" class="btn btn-danger">Delete</a>
             </td>
         </tr>
     }
