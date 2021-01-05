@@ -1,4 +1,4 @@
-﻿@model EntityframeworkDotnet.Context.size
+﻿@model EntityframeworkDotnet.Context.Food
 
 @{
     ViewBag.Title = "AddFood";
@@ -20,39 +20,65 @@
     <div class="container">
 
         @Html.HiddenFor(x => x.id)
-        @Html.HiddenFor(x => x.food_id)
 
         <div class="form-group">
             <label>Name</label>
-            @Html.ValidationMessageFor(x => x.Food.name, "", new { @class = "error" })
-            @Html.TextBoxFor(x => x.Food.name, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.name, "", new { @class = "error" })
+            @Html.TextBoxFor(x => x.name, new { @class = "form-control" })
         </div>
 
         <div class="form-group">
             <label>Catagory</label>
-            @Html.DropDownListFor(x => x.Food.catagory_id, ViewBag.category as SelectList, new { @class = "form-control" })
+            @Html.DropDownList("category",null, "Select", new { @class = "form-control",@Name= "catagory_id" })
 
         </div>
 
         <div id="size">
-            <div class="form-group">
-                <label>Size</label>
-                @Html.DropDownListFor(x => x.size1, size, "---Select Size---", new { @class = "form-control" })
-            </div>
+            @if (Model!=null && Model.sizes.Count() != 0)
+                {
 
-            <div class="form-group">
-                <label>Price</label>
-                @Html.ValidationMessageFor(x => x.price, "", new { @class = "error" })
-                @Html.TextBoxFor(x => x.price, new { @class = "form-control" })
+                    var i = 0;
+                    //for (int i = 0; i < ViewBag.n; i++)
+                    foreach(var sizedata in Model.sizes)
+                    {
+                    <div class="form-inline">
+                        <div class="form-group">
+                            <input type="hidden" name="fmodel.sizes.index" value="@i" />
+                            <label>Size</label>
+                            <select name="fmodel.sizes[@i].size1" class="form-control">
+                                <option value="small" @(sizedata.size1=="small"?"selected":"")> Small</option>
+                                <option value="medium" @(sizedata.size1=="medium"?"selected":"")>Medium</option>
+                                <option value="large" @(sizedata.size1=="large"?"selected":"")>Large</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Price</label>
+                            <input type="text" name="fmodel.sizes[@i].price" class="form-control" value="@sizedata.price" />
+                        </div>
+                    </div>
+                    i = i + 1;
+                    @*<div class="form-group">
+                    <label>Size</label>
+                    @Html.DropDownListFor(x => x.size1, size, "---Select Size---", new { @class = "form-control" })
+                </div>
 
-            </div>
+                <div class="form-group">
+                    <label>Price</label>
+                    @Html.ValidationMessageFor(x => x.price, "", new { @class = "error" })
+                    @Html.TextBoxFor(x => x.price, new { @class = "form-control" })
+
+                </div>*@
+                }
+
+            }
+
         </div>
 
 
         <div class="form-group">
             <button type="submit" class="btn btn-primary">submit</button>
             @* <button class="btn btn-primary" id="append" name="append">More Size</button>*@
-            <input type="button" value="More Size" name="append" id="append" class="btn" />
+            <input type="button" value="Add Size" name="append" id="append" class="btn" />
         </div>
     </div>
 }
@@ -60,13 +86,14 @@
 @section scripts
 {
     <script type="text/javascript">
-        var i = 1;
+        var i = @(Model == null ? 0 : Model.sizes.Count());
         jQuery(document).ready(function () {
             $("#append").click(function () {
-                if (i < 3) {
-                    $("#size").append('<div class="form-group">\
+                $("#size").append('<div  class="form-inline">\
+                                    <div class="form-group">\
+                                      <input type="hidden" name="fmodel.sizes.index" value="'+ i + '"/>\
                                     <label>Size</label>\
-                                    <select name="size'+ i + '" class = "form-control">\
+                                    <select name="fmodel.sizes['+ i + '].size1" class = "form-control">\
                                         <option value = "small" > Small</option >\
                                         <option value="medium">Medium</option>\
                                         <option value="large">Large</option>\
@@ -74,10 +101,10 @@
                                 </div>\
                                 <div class="form-group">\
                                     <label>Price</label>\
-                                    <input type="text" name="price'+ i + '" class = "form-control"/>\
+                                    <input type="text" name="fmodel.sizes['+ i + '].price" class = "form-control"/>\
+                                 </div>\
                                  </div>'
-                    );
-                }
+                );
                 
                 i++;
                 return false;
