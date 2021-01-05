@@ -48,30 +48,30 @@ namespace EntityframeworkDotnet.Controllers
 
                 else
                 {
-                    //int i = 0;
+                    int i = 0;
                     
-                    //fobj.name = fmodel.name;
-                    //fobj.catagory_id = fmodel.catagory_id;
-                    //dbentity.Entry(fobj).State = EntityState.Modified;
-                    //var s = dbentity.sizes.Where(x => x.food_id == fmodel.id && x.isDeleted == false).ToList();
-                    //foreach (var sizedata in fmodel.sizes)
-                    //{
-                    //    if (i > s.Count()-1)//add new size while update
-                    //    {
-                    //        sobj = new size();
-                    //        sobj.food_id = fmodel.id;
-                    //        sobj.size1 = sizedata.size1;
-                    //        sobj.price = sizedata.price;
-                    //        dbentity.sizes.Add(sobj);
-                    //    }
-                    //    else// update current size
-                    //    {
-                    //        s[i].size1 = sizedata.size1;
-                    //        s[i].price = sizedata.price;
-                    //    }
+                    fobj.name = fmodel.name;
+                    fobj.catagory_id = fmodel.catagory_id;
+                    dbentity.Entry(fobj).State = EntityState.Modified;
+                    var s = dbentity.sizes.Where(x => x.food_id == fmodel.id && x.isDeleted == false).ToList();
+                    foreach (var sizedata in fmodel.sizes)
+                    {
+                        if (i > s.Count()-1)//add new size while update
+                        {
+                            sobj = new size();
+                            sobj.food_id = fmodel.id;
+                            sobj.size1 = sizedata.size1;
+                            sobj.price = sizedata.price;
+                            dbentity.sizes.Add(sobj);
+                        }
+                        else// update current size
+                        {
+                            s[i].size1 = sizedata.size1;
+                            s[i].price = sizedata.price;
+                        }
                         
-                    //    i++;
-                    //}
+                        i++;
+                    }
 
 
 
