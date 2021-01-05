@@ -23,7 +23,7 @@
                 <ol>
                     @foreach (var size in iteam.sizes)
                     {
-                        if (size.size1 != null || size.size1 != "")
+                        if (size.isDeleted == false)
                         {
                             <li>@size.size1</li>
                         }
@@ -35,7 +35,10 @@
                 <ol>
                     @foreach (var size in iteam.sizes)
                     {
-                        <li>@size.price</li>
+                        if (size.isDeleted == false)
+                        {
+                            <li>@size.price</li>
+                        }
                     }
                 </ol>
             </td>

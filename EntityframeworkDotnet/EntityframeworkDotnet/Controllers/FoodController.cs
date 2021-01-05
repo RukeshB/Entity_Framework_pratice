@@ -27,40 +27,54 @@ namespace EntityframeworkDotnet.Controllers
             {
                 Food fobj = dbentity.Foods.Find(fmodel.id);
                 size sobj = dbentity.sizes.FirstOrDefault(x => x.food_id == fmodel.id);
-                //if(fobj == null || sobj == null)
-                if (fmodel.id == 0)
+                if(fobj == null || sobj == null)
+                //if (fmodel.id == 0)
                 {
                     fobj = new Food();
-                    sobj = new size();
-
+                    
                     fobj.name = fmodel.name;
                     fobj.catagory_id = fmodel.catagory_id;
                     foreach (var sizedata in fmodel.sizes)
                     //foreach(var sizedata in Request["Food.sizes"])
                     {
+                        sobj = new size();
                         sobj.size1 = sizedata.size1;
                         sobj.price = sizedata.price;
+                        dbentity.sizes.Add(sobj);
                     }
-
                     dbentity.Foods.Add(fobj);
-                    dbentity.sizes.Add(sobj);
                     dbentity.SaveChanges();
                 }
 
                 else
                 {
-                    int i = 0;
-                    fobj.name = fmodel.name;
-                    fobj.catagory_id = fmodel.catagory_id;
-                    var s = dbentity.sizes.Where(x => x.food_id == fmodel.id && x.isDeleted == false).ToList();
-                    foreach (var sizedata in fmodel.sizes)
-                    {
-                        s[i].size1 = sizedata.size1;
-                        s[i].price = sizedata.price;
-                        i++;
-                    }
+                    //int i = 0;
+                    
+                    //fobj.name = fmodel.name;
+                    //fobj.catagory_id = fmodel.catagory_id;
+                    //dbentity.Entry(fobj).State = EntityState.Modified;
+                    //var s = dbentity.sizes.Where(x => x.food_id == fmodel.id && x.isDeleted == false).ToList();
+                    //foreach (var sizedata in fmodel.sizes)
+                    //{
+                    //    if (i > s.Count()-1)//add new size while update
+                    //    {
+                    //        sobj = new size();
+                    //        sobj.food_id = fmodel.id;
+                    //        sobj.size1 = sizedata.size1;
+                    //        sobj.price = sizedata.price;
+                    //        dbentity.sizes.Add(sobj);
+                    //    }
+                    //    else// update current size
+                    //    {
+                    //        s[i].size1 = sizedata.size1;
+                    //        s[i].price = sizedata.price;
+                    //    }
+                        
+                    //    i++;
+                    //}
 
-                    dbentity.Entry(fobj).State = EntityState.Modified;
+
+
                     //dbentity.Entry(sobj).State = EntityState.Modified;
                     dbentity.SaveChanges();
                 }
@@ -71,10 +85,11 @@ namespace EntityframeworkDotnet.Controllers
             catch (Exception ex)
             {
                 ViewBag.errormessage = ex;
+                return View("ErrorPage");
             }
 
-            ViewBag.category = new SelectList(dbentity.categories.ToList(), "id", "catagory_name", fmodel?.catagory_id);
-            return View("AddFood", fmodel);
+            //ViewBag.category = new SelectList(dbentity.categories.ToList(), "id", "catagory_name", fmodel?.catagory_id);
+            //return View("AddFood", fmodel);
         }
 
         public ActionResult Food(int foodid = 0)

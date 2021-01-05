@@ -19,55 +19,60 @@
 {
     <div class="container">
 
-        @Html.HiddenFor(x => x.id)
-
+        @Html.Hidden("id",Model.id, new { @Name= "fmodel.id"})
+       
         <div class="form-group">
             <label>Name</label>
             @Html.ValidationMessageFor(x => x.name, "", new { @class = "error" })
-            @Html.TextBoxFor(x => x.name, new { @class = "form-control" })
+           @* @Html.TextBoxFor(x => x.name, new { @class = "form-control" })*@
+            @Html.TextBox("name",Model.name,new { @class="form-control", @Name = "fmodel.name" })
         </div>
 
         <div class="form-group">
             <label>Catagory</label>
-            @Html.DropDownList("category",null, "Select", new { @class = "form-control",@Name= "catagory_id" })
+            @Html.DropDownList("category",null, "Select", new { @class = "form-control",@Name= "fmodel.catagory_id" })
 
         </div>
 
         <div id="size">
-            @if (Model!=null && Model.sizes.Count() != 0)
+            @if (Model != null && Model.sizes.Count() != 0)
+            {
+
+                var i = 0;
+                //for (int i = 0; i < ViewBag.n; i++)
+                foreach (var sizedata in Model.sizes)
                 {
-
-                    var i = 0;
-                    //for (int i = 0; i < ViewBag.n; i++)
-                    foreach(var sizedata in Model.sizes)
+                    if (sizedata.isDeleted == false)
                     {
-                    <div class="form-inline">
-                        <div class="form-group">
-                            <input type="hidden" name="fmodel.sizes.index" value="@i" />
-                            <label>Size</label>
-                            <select name="fmodel.sizes[@i].size1" class="form-control">
-                                <option value="small" @(sizedata.size1=="small"?"selected":"")> Small</option>
-                                <option value="medium" @(sizedata.size1=="medium"?"selected":"")>Medium</option>
-                                <option value="large" @(sizedata.size1=="large"?"selected":"")>Large</option>
-                            </select>
+                        <div class="form-inline">
+                            <div class="form-group">
+                                <input type="hidden" name="fmodel.sizes.index" value="@i" />
+                                <label>Size</label>
+                                <select name="fmodel.sizes[@i].size1" class="form-control">
+                                    <option value="small" @(sizedata.size1)> Small</option>
+                                    <option value="medium" @(sizedata.size1)>Medium</option>
+                                    <option value="large" @(sizedata.size1)>Large</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Price</label>
+                                <input type="text" name="fmodel.sizes[@i].price" class="form-control" value="@sizedata.price" />
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label>Price</label>
-                            <input type="text" name="fmodel.sizes[@i].price" class="form-control" value="@sizedata.price" />
-                        </div>
+                        i = i + 1;
+                        @*<div class="form-group">
+                        <label>Size</label>
+                        @Html.DropDownListFor(x => x.size1, size, "---Select Size---", new { @class = "form-control" })
                     </div>
-                    i = i + 1;
-                    @*<div class="form-group">
-                    <label>Size</label>
-                    @Html.DropDownListFor(x => x.size1, size, "---Select Size---", new { @class = "form-control" })
-                </div>
 
-                <div class="form-group">
-                    <label>Price</label>
-                    @Html.ValidationMessageFor(x => x.price, "", new { @class = "error" })
-                    @Html.TextBoxFor(x => x.price, new { @class = "form-control" })
+                    <div class="form-group">
+                        <label>Price</label>
+                        @Html.ValidationMessageFor(x => x.price, "", new { @class = "error" })
+                        @Html.TextBoxFor(x => x.price, new { @class = "form-control" })
 
-                </div>*@
+                    </div>*@
+                    }
+
                 }
 
             }
