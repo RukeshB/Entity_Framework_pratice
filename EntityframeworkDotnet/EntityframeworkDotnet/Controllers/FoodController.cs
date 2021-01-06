@@ -146,23 +146,5 @@ namespace EntityframeworkDotnet.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult Delete(int sizeid,int foodid)
-        {
-            try
-            {
-                size delsize = dbentity.sizes.Where(x => x.id == sizeid && x.isDeleted == false).FirstOrDefault();
-                
-                delsize.isDeleted = true;
-                
-                dbentity.SaveChanges();
-            }
-            catch (Exception ex)
-            {
-                ViewBag.errormessage = ex;
-                return View("ErrorPage");
-            }
-            return RedirectToAction("Food", foodid);
-        }
-
     }
 }
