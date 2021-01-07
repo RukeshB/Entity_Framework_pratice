@@ -50,6 +50,11 @@ namespace EntityframeworkDotnet.Controllers
                 {
                     int i = 0;
                     var s = dbentity.sizes.Where(x => x.food_id == fmodel.id && x.isDeleted == false).ToList();
+                    
+                    foreach(var del in s)
+                    {
+                        del.isDeleted = true;
+                    }
 
                         fobj.name = fmodel.name;
                         fobj.catagory_id = fmodel.catagory_id;
@@ -57,7 +62,8 @@ namespace EntityframeworkDotnet.Controllers
 
                         foreach (var sizedata in fmodel.sizes)
                         {
-                            if (i > s.Count() - 1)//add new size while update
+                            //if (i > s.Count() - 1)//add new size while update
+                            if(sizedata.id == 0)
                             {
                                 sobj = new size();
                                 sobj.food_id = fmodel.id;
@@ -67,12 +73,28 @@ namespace EntityframeworkDotnet.Controllers
                             }
                             else// update current size
                             {
-                                s[i].size1 = sizedata.size1;
-                                s[i].price = sizedata.price;
+                                foreach (var update in s)
+                                {
+                                    if (update.id == sizedata.id)
+                                    {
+                                        update.size1 = sizedata.size1;
+                                        update.price = sizedata.price;
+                                        update.isDeleted = false;
+                                    }
+                                }
+                            //s[i].size1 = sizedata.size1;
+                            //s[i].price = sizedata.price;
+                            //s[i].isDeleted = false;
                             }
 
                             i++;
                         }
+
+                        //if(s.Count()>fmodel.sizes.Count())
+                        //{
+                        //    for(int j=i;j<s.Count();j++)
+                        //        s[j].isDeleted = true;
+                        //}
                         dbentity.SaveChanges();
                     
                     

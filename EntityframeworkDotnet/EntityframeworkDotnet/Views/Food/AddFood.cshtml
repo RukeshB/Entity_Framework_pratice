@@ -13,7 +13,8 @@
         color: red;
     }
 </style>
-<h2>AddFood</h2>
+<h2>
+AddFood</h2>
 
 @using (Html.BeginForm("AddFood", "Food", FormMethod.Post))
 {
@@ -48,11 +49,12 @@
                         <div class="form-inline" id="currentsize">
                             <div class="form-group">
                                 <input type="hidden" name="fmodel.sizes.index" value="@i" />
+                                <input type="hidden" name="fmodel.sizes[@i].id" value="@sizedata.id" />
                                 <label>Size</label>
                                 <select name="fmodel.sizes[@i].size1" class="form-control">
-                                    <option value="small" @(sizedata.size1)> Small</option>
-                                    <option value="medium" @(sizedata.size1)>Medium</option>
-                                    <option value="large" @(sizedata.size1)>Large</option>
+                                    <option value="small" @(sizedata.size1=="small"?"selected":"")> Small</option>
+                                    <option value="medium" @(sizedata.size1=="medium"?"selected":"")>Medium</option>
+                                    <option value="large" @(sizedata.size1=="large"?"selected":"")>Large</option>
                                 </select>
                             </div>
                             <div class="form-group">
