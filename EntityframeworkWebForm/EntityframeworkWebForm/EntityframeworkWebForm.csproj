@@ -114,10 +114,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
-    <Content Include="App_Data\fastfood.mdf" />
-    <Content Include="App_Data\fastfood_log.ldf">
-      <DependentUpon>fastfood.mdf</DependentUpon>
-    </Content>
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -140,7 +136,7 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>MyModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="List.aspx" />
+    <Content Include="Add.aspx" />
     <Content Include="MyModel.edmx.diagram">
       <DependentUpon>MyModel.edmx</DependentUpon>
     </Content>
@@ -222,12 +218,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="List.aspx.cs">
-      <DependentUpon>List.aspx</DependentUpon>
+    <Compile Include="Add.aspx.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="List.aspx.designer.cs">
-      <DependentUpon>List.aspx</DependentUpon>
+    <Compile Include="Add.aspx.designer.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
     </Compile>
     <Compile Include="MyModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -283,6 +279,9 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

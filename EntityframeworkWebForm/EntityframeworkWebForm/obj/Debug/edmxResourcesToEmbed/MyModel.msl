@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="fastfoodModelStoreContainer" CdmEntityContainer="fastfoodEntities">
+    <EntitySetMapping Name="categories">
+      <EntityTypeMapping TypeName="fastfoodModel.category">
+        <MappingFragment StoreEntitySet="category">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="catagory_name" ColumnName="catagory_name" />
+          <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Foods">
+      <EntityTypeMapping TypeName="fastfoodModel.Food">
+        <MappingFragment StoreEntitySet="Food">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="catagory_id" ColumnName="catagory_id" />
+          <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sizes">
+      <EntityTypeMapping TypeName="fastfoodModel.size">
+        <MappingFragment StoreEntitySet="size">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="food_id" ColumnName="food_id" />
+          <ScalarProperty Name="size1" ColumnName="size" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
