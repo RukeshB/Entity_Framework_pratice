@@ -14,24 +14,7 @@ namespace EntityframeworkWebForm
         
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            //var foods = entity.Foods.ToList();
-            //int index = 0;
-            //foreach (var food in foods)
-            //{
-            //    int index = FoodList.Rows.
-            //    FoodList.RowCreated row;
-            //    FoodList.Rows[index].Cells[1].Text = food.name;
-            //    FoodList.Rows[index].Cells[2].Text = food.category.catagory_name;
-            //    foreach (var sizedata in food.sizes)
-            //    {
-            //        FoodList.Rows[index].Cells[3].Text = FoodList.Rows[index].Cells[2].Text + "," + sizedata.size1;
-            //        FoodList.Rows[index].Cells[4].Text = FoodList.Rows[index].Cells[3].Text + "," + sizedata.size1;
-
-            //    }
-            //    index++;
-            //}
-            //
+            loadcategory();
             loadFood();
         }
         public void loadFood()
@@ -49,32 +32,28 @@ namespace EntityframeworkWebForm
                         };
             FoodList.DataSource = query.ToList();
             FoodList.DataBind();
+        }
 
+        public void loadcategory()
+        {
+            catagory.DataSource = entity.categories.ToList();
+            catagory.DataValueField = "id";
+            catagory.DataTextField = "catagory_name";
+            catagory.DataBind();
+        }
 
-            //DataTable dt = new DataTable("food");
-            //dt.Columns.Add("id", typeof(Int32));
-            //dt.Columns.Add("Name", typeof(string));
-            //dt.Columns.Add("Category_Name", typeof(string));
-            //dt.Columns.Add("Size", typeof(string));
-            //dt.Columns.Add("Price", typeof(string));
+        protected void save_Click(object sender, EventArgs e)
+        {
+            Food fmodel = new Food();
+            size smodel = new size();
 
-            //var foods = entity.Foods.ToList();
-            //var newrow = dt.Rows.Add();
-            //string size_list = "";
-            //string price_list = "";
-            //foreach (var food in foods)
-            //{
-            //    newrow["id"] = food.id;
-            //    newrow["Name"] = food.name;
-            //    newrow["Category_Name"] = food.category.catagory_name;
-            //    foreach(var sizedata in food.sizes)
-            //    {
-            //        size_list = size_list + " , " + sizedata.size1;
-            //        price_list = price_list + " , " + sizedata.price;
-            //    }
-            //    newrow["Size"] = size_list;
-            //    newrow["Size"] = price_list;
-            //}
+            fmodel.catagory_id = Convert.ToInt32(catagory.SelectedValue);
+            fmodel.name = name.Text;
+            smodel.size1 = sizeList.SelectedValue;
+            smodel.price = Convert.ToInt32(price.Text);
+            fmodel.sizes.Add(smodel);
+            entity.Foods.Add(fmodel);
+            entity.SaveChanges();
         }
     }
 }
