@@ -30,7 +30,7 @@
                     <asp:ListItem Value="large">Large</asp:ListItem>
                 </asp:DropDownList>
             </td>
-            <td>
+            <td style="width: 67px">
                 price:
             </td>
             <td>
@@ -40,7 +40,11 @@
         <tr>
             <td></td>
             <td style="width: 129px">
-                <asp:Button ID="save" runat="server" Text="submmit" OnClick="save_Click" />
+                <asp:Button ID="save" runat="server" Text="submmit" OnClick="save_Click" Width="67px" />
+                
+            </td>
+            <td style="width: 67px">
+                <asp:Button ID="reset" runat="server" Text="Clear" OnClick="reset_Click" style="margin-left: 3px" Width="65px"/>
             </td>
         </tr>
     </table>

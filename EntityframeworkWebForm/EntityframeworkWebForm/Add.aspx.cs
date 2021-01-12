@@ -16,7 +16,21 @@ namespace EntityframeworkWebForm
             catagory.DataValueField = "id";
             catagory.DataTextField = "catagory_name";
             catagory.DataBind();
+            //clear();
         }
+
+        protected void reset_Click(object sender, EventArgs e)
+        {
+            //clear();
+        }
+
+        //void clear()
+        //{
+        //    name.Text = "";
+        //    catagory.Text = "";
+        //    sizeList.Text = "";
+        //    price.Text = "";
+        //}
 
         protected void save_Click(object sender, EventArgs e)
         {
@@ -27,6 +41,10 @@ namespace EntityframeworkWebForm
             fmodel.name = name.Text;
             smodel.size1 = sizeList.SelectedValue;
             smodel.price = Convert.ToInt32(price.Text);
+            fmodel.sizes.Add(smodel);
+            entity.Foods.Add(fmodel);
+            entity.SaveChanges();
+            Response.Redirect("Default.aspx");
         }
     }
 }
