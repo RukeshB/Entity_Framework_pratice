@@ -11,7 +11,7 @@
                     Name:
                 </asp:TableCell>
                 <asp:TableCell ColumnSpan="2">
-                    <asp:TextBox ID="name" runat="server" Width="174px" Height="26px"></asp:TextBox>
+                    <asp:TextBox ID="name" runat="server" Width="174px" Height="38px"></asp:TextBox>
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
@@ -19,7 +19,7 @@
                     Catagory:
                 </asp:TableCell>
                 <asp:TableCell ColumnSpan="2">
-                    <asp:DropDownList ID="catagory" runat="server" Height="38px" Width="185px"></asp:DropDownList>
+                    <asp:DropDownList ID="catagory" runat="server" Height="38px" Width="174px"></asp:DropDownList>
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow id="currentsize">
