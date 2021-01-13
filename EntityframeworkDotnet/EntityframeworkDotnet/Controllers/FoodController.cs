@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Core;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -34,6 +35,19 @@ namespace EntityframeworkDotnet.Controllers
                     
                     fobj.name = fmodel.name;
                     fobj.catagory_id = fmodel.catagory_id;
+
+                    //to save file
+                    foreach (string upload in Request.Files)
+                    {
+                        if (Request.Files[upload].FileName != "")
+                        {
+                            string path = AppDomain.CurrentDomain.BaseDirectory + "/App_Data/uploads/";
+                            string filename = Path.GetFileName(Request.Files[upload].FileName);
+                            Request.Files[upload].SaveAs(Path.Combine(path, filename));
+                        }
+                    }
+
+                    //to save multipal size
                     foreach (var sizedata in fmodel.sizes)
                     //foreach(var sizedata in Request["Food.sizes"])
                     {
@@ -167,6 +181,5 @@ namespace EntityframeworkDotnet.Controllers
             }
             return RedirectToAction("Index");
         }
-
     }
 }

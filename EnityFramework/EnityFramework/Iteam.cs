@@ -203,7 +203,7 @@ namespace EnityFramework
 
             Food foodmodel = fe.Foods.Find(food_id);
             size sizemodel = fe.sizes.FirstOrDefault(x => x.food_id == food_id);
-            if (foodmodel == null && sizemodel == null)
+            if (foodmodel == null)
             {
                 foodmodel = new Food();
 

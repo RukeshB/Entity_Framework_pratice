@@ -3214,9 +3214,10 @@
     <Content Include="Views\Food\AddFood.cshtml" />
     <Content Include="Views\Food\ErrorPage.cshtml" />
     <Content Include="Views\Shared\_MyLayout.cshtml" />
+    <Content Include="Views\Food\uploadfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <Folder Include="App_Data\uploads\" />
     <Folder Include="Content\assets\plugins\jstree\themes\default\" />
     <Folder Include="Models\" />
   </ItemGroup>
