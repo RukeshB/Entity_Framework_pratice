@@ -181,5 +181,21 @@ namespace EntityframeworkDotnet.Controllers
             }
             return RedirectToAction("Index");
         }
+
+        public ActionResult uploadfile()
+        {
+            foreach (string upload in Request.Files)
+            {
+                if (Request.Files[upload].FileName != "")
+                {
+                    string path = AppDomain.CurrentDomain.BaseDirectory + "/App_Data/uploads/";
+                    string filename = Path.GetFileName(Request.Files[upload].FileName);
+                    Request.Files[upload].SaveAs(Path.Combine(path, filename));
+                    ViewBag.path = path;
+                    ViewBag.filename = filename;
+                }
+            }
+            return View();
+        }
     }
 }
