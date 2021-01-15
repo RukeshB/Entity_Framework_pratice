@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm("Create", "Category", FormMethod.Post, new { id = "form", @class = "" }))
+{
+    <div class="form-group">
+        <input type="text" id="catagory_name" name="catagory_name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <input id="btn_submit" type="button" value="Submit" class="btn btn-primary" />
+    </div>
+}
+<div id="messageDiv"></div>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            $("#btn_submit").click(function (e) {
+                var data = $("#form").serialize();
+                $.ajax({
+                    url: $("#form").attr('action'),
+                    type: "POST",
+                    dataType: 'json',
+                    contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+                    data: data,
+                    success: function (result) {
+                        alert(result.msg);
+                        //$("#messageDiv").html(result);
+                    },
+                    error: function (xhr, status, error) {
+                        //$("#messageDiv").html(status);
+                    }
+                });
+            });
+        });
+    </script>
+}

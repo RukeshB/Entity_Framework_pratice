@@ -220,12 +220,16 @@
                         <li class="text-muted menu-title">Navigation</li>
 
                         <li class="has_sub">
-                            <a href="javascript:void(0);" class="waves-effect"><i class="ti-home"></i> <span> Dashboard </span> <span class="menu-arrow"></span></a>
+                            <a href="javascript:void(0);" class="waves-effect"><i class="ti-home"></i> <span> Food </span> <span class="menu-arrow"></span></a>
                             <ul class="list-unstyled">
-                                <li><a href="index.html">Dashboard 1</a></li>
-                                <li><a href="dashboard_2.html">Dashboard 2</a></li>
-                                <li><a href="dashboard_3.html">Dashboard 3</a></li>
-                                <li><a href="dashboard_4.html">Dashboard 4</a></li>
+                                <li>@Html.ActionLink("AddFood", "Food", "Food")</li>
+                                <li> @Html.ActionLink("Home", "Index", "Food")</li>
+                            </ul>
+
+                            <a href="javascript:void(0);" class="waves-effect"><i class="ti-home"></i> <span> Category </span> <span class="menu-arrow"></span></a>
+                            <ul class="list-unstyled">
+                                <li>@Html.ActionLink("AddCategory", "Create", "Category")</li>
+                                @*<li> @Html.ActionLink("Home", "Index", "Category")</li>*@
                             </ul>
                         </li>
 
@@ -265,6 +269,7 @@
     </script>
 
     <!-- jQuery  -->
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
     <script src="~/Content/assets/js/jquery.min.js"></script>
     <script src="~/Content/assets/js/bootstrap.min.js"></script>
     <script src="~/Content/assets/js/detect.js"></script>
@@ -280,5 +285,6 @@
     <script src="~/Content/assets/js/jquery.core.js"></script>
     <script src="~/Content/assets/js/jquery.app.js"></script>
 
+    @RenderSection("scripts", required: false)
 </body>
 </html>

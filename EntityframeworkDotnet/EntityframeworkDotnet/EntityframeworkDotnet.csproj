@@ -152,6 +152,7 @@
     <Compile Include="Context\size.cs">
       <DependentUpon>dbModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\FoodController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -3215,6 +3216,7 @@
     <Content Include="Views\Food\ErrorPage.cshtml" />
     <Content Include="Views\Shared\_MyLayout.cshtml" />
     <Content Include="Views\Food\uploadfile.cshtml" />
+    <Content Include="Views\Category\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\uploads\" />
