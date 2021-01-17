@@ -3217,6 +3217,7 @@
     <Content Include="Views\Shared\_MyLayout.cshtml" />
     <Content Include="Views\Food\uploadfile.cshtml" />
     <Content Include="Views\Category\Create.cshtml" />
+    <Content Include="Views\Category\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\uploads\" />
