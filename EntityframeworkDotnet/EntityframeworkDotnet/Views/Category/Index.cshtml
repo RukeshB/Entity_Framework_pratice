@@ -40,8 +40,15 @@
     </ul>
     <div class="tab-content">
         <div class="tab-pane active" id="home">
-            <p>Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.</p>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
+            <form>
+                <label class="form-control">1st Number</label>
+                <input type="text" id="num1" class="form-control" />
+                <label class="form-control">2nd Number</label>
+                <input type="text" id="num2" class="form-control" />
+                <label class="form-control">Result</label>
+                <input type="text" id="result" class="form-control" />
+                <button type="button" class="btn btn-primary" id="cal">Cal</button>
+            </form>
         </div>
         <div class="tab-pane" id="profile">
             <p>Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.</p>
@@ -50,3 +57,17 @@
     </div>
 </div>
 
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            $("#cal").on("click", function () {
+                var a = parseInt($('#num1').val());
+                var b = parseInt($('#num2').val());
+
+                var c = a + b;
+                $('#result').val(c);
+            });
+        });
+    </script>
+}
