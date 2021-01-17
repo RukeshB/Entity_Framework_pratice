@@ -182,20 +182,24 @@ namespace EntityframeworkDotnet.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult uploadfile()
+        public ActionResult uploadfile(HttpPostedFileBase file)
         {
-            foreach (string upload in Request.Files)
+            try
             {
-                if (Request.Files[upload].FileName != "")
+                if (file.ContentLength > 0)
                 {
-                    string path = AppDomain.CurrentDomain.BaseDirectory + "/App_Data/uploads/";
-                    string filename = Path.GetFileName(Request.Files[upload].FileName);
-                    Request.Files[upload].SaveAs(Path.Combine(path, filename));
-                    ViewBag.path = path;
-                    ViewBag.filename = filename;
+                    string _FileName = Path.GetFileName(file.FileName);
+                    string _path = Path.Combine(Server.MapPath("~/App_Data/uploads/"), _FileName);
+                    file.SaveAs(_path);
                 }
+                ViewBag.Message = "File Uploaded Successfully!!";
+                return View();
             }
-            return View();
+            catch
+            {
+                ViewBag.Message = "File upload failed!!";
+                return View();
+            }
         }
     }
 }
