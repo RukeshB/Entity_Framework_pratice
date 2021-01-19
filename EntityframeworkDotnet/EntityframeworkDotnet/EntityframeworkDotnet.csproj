@@ -149,8 +149,10 @@
     <Compile Include="Context\Food.cs">
       <DependentUpon>dbModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Context\metadata.cs" />
-    <Compile Include="Context\PartialClass.cs" />
+    <Compile Include="Context\metadata\categorymetadata.cs" />
+    <Compile Include="Context\metadata\FoodMetadata.cs" />
+    <Compile Include="Context\metadata\SizeMetadata.cs" />
+    <Compile Include="Context\partialclass.cs" />
     <Compile Include="Context\size.cs">
       <DependentUpon>dbModel.tt</DependentUpon>
     </Compile>
