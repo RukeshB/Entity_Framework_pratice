@@ -20,18 +20,21 @@ AddFood</h2>
 {
     <div class="container">
 
-        @Html.Hidden("id",Model.id, new { @Name= "fmodel.id"})
+        @Html.HiddenFor(model=>model.id, new { @Name= "fmodel.id"})
        
         <div class="form-group">
-            <label>Name</label>
-            @Html.ValidationMessageFor(x => x.name, "", new { @class = "error" })
-           @* @Html.TextBoxFor(x => x.name, new { @class = "form-control" })*@
-            @Html.TextBox("name",Model.name,new { @class="form-control", @Name = "fmodel.name" })
+            <label>@Html.DisplayNameFor(x=>x.name)</label>
+            @Html.TextBoxFor(x => x.name, new { @class = "form-control", @Name = "fmodel.name" })
+            @*@Html.TextBox("name",Model.name,new { @class="form-control", @Name = "fmodel.name" })*@
+            @*@Html.ValidationMessageFor(x => x.name, "", new { @class = "error" })*@
+            @Html.ValidationMessage("fmodel.name", "", new { @class = "error" })
         </div>
 
         <div class="form-group">
             <label>Catagory</label>
             @Html.DropDownList("category",null, "Select", new { @class = "form-control",@Name= "fmodel.catagory_id" })
+            @*@Html.DropDownListFor(x => x.catagory_id, ViewBag.category, "fmodel.catagory_id", new { @class = "form-control", @Name = "fmodel.catagory_id" })
+            @Html.DropDownListFor(x=>x.catagory_id, ViewBag.category, new { @class = "form-control",@Name= "fmodel.catagory_id" })*@
 
         </div>
 

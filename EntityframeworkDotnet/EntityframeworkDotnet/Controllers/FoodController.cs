@@ -119,11 +119,12 @@ namespace EntityframeworkDotnet.Controllers
 
             catch (Exception ex)
             {
-                ViewBag.category = new SelectList(dbentity.categories.ToList(), "id", "catagory_name", fmodel?.catagory_id);
-                return View("AddFood", fmodel);
+                ViewBag.errormessage = ex;
+                return View("ErrorPage");
             }
 
-
+            //ViewBag.category = new SelectList(dbentity.categories.ToList(), "id", "catagory_name", fmodel?.catagory_id);
+            //return View("AddFood", fmodel);
         }
 
         public ActionResult Food(int foodid = 0)
