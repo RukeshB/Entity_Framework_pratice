@@ -41,10 +41,11 @@ namespace EntityframeworkDotnet.Context
 
         [Display(Name = "Food Name")]
         [Required(ErrorMessage = "Food Name cannot be blank")]
+        [MinLength(3)]
         public string name { get; set; }
 
-        [Display(Name = "Catagory Id")]
-        [Required(ErrorMessage = "Catagory Id cannot be blank")]
+        [Display(Name = "Catagory")]
+        [Required(ErrorMessage = "Catagory cannot be blank")]
         public int catagory_id { get; set; }
 
         public bool isDeleted { get; set; }
@@ -59,7 +60,6 @@ namespace EntityframeworkDotnet.Context
         public int id { get; set; }
 
         [Display(Name = "Food Id")]
-        [Required(ErrorMessage = "Food Id cannot be blank")]
         public int food_id { get; set; }
 
         [Display(Name = "Size")]
