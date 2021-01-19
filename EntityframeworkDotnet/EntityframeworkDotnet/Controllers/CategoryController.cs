@@ -90,5 +90,10 @@ namespace EntityframeworkDotnet.Controllers
                 return View();
             }
         }
+
+        public ActionResult pratice()
+        {
+            return View();
+        }
     }
 }
