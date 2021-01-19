@@ -14,7 +14,11 @@
                 <span class="hidden-xs">Jquary Add</span>
             </a>
         </li>
-        
+        <li class="">
+            <a href="#onchange" data-toggle="tab" aria-expanded="false">
+                <span class="hidden-xs">jquary onchange</span>
+            </a>
+        </li>
         <li class="">
             <a href="#jmodal" data-toggle="tab" aria-expanded="true">
                 <span class="visible-xs"><i class="fa fa-user"></i></span>
@@ -54,7 +58,24 @@
                 
             </form>
         </div>
-        
+        <div class="tab-pane" id="onchange">
+            <form>
+                <div class="form-group">
+                    <label for="cars" class="label">Choose a car:</label>
+                    <select name="cars" id="cars" class="form-control">
+                        <option value="volvo">Volvo</option>
+                        <option value="saab">Saab</option>
+                        <option value="mercedes">Mercedes</option>
+                        <option value="audi">Audi</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label class="label">Selected Value</label>
+                    <input type="text" id="output" class="form-control" readonly />
+                </div>
+            </form>
+        </div>
         <div class="tab-pane" id="jmodal">
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#mymodal">Open Model</button>
             <div class="modal fade" id="mymodal">
