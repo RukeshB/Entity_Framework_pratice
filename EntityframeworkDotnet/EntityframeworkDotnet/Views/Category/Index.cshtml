@@ -49,7 +49,7 @@
                 
                 <div class="form-group">
                     <button type="button" class="btn btn-primary" id="cal">Cal</button>
-                    
+                    <button type="submit" class="btn btn-purple">submit</button>
                 </div>
                 
             </form>
@@ -96,7 +96,18 @@
                 $('#result').val(c);
             });
 
-            
+            $("form").submit(function () {
+                var a = parseInt($('#num1').val());
+                var b = parseInt($('#num2').val());
+
+                var c = a + b;
+                $('#result').val(c);
+            })
+
+            $("#cars").on("change", function () {
+                var selval = $("#cars").val();
+                $("#output").val(selval);
+            });
         });
     </script>
 }
