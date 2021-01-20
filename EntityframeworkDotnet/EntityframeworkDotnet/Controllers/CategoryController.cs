@@ -88,17 +88,22 @@ namespace EntityframeworkDotnet.Controllers
         // GET: Category/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var CatById = interfaceobj.GetModelById(id);
+            return View(CatById);
         }
 
         // POST: Category/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id, category collection)
         {
             try
             {
-                // TODO: Add delete logic here
+                collection.isDeleted = true;
+                //category catmodel = new category();
+                //catmodel.id = collection.id;
 
+                interfaceobj.UpdateModel(collection);
+                interfaceobj.save();
                 return RedirectToAction("Index");
             }
             catch
