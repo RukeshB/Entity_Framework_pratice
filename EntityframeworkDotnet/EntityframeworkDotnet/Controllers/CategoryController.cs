@@ -22,7 +22,7 @@ namespace EntityframeworkDotnet.Controllers
         public ActionResult Index()
         {
             //return View(from m in interfaceobj.GetModel() select m);
-            return View(interfaceobj.GetModel());
+            return View(interfaceobj.GetModel().Where(x => x.isDeleted == false));
         }
 
         // GET: Category/Details/5
