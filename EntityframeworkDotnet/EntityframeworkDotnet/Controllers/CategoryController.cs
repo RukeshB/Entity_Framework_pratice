@@ -1,4 +1,5 @@
 ﻿using EntityframeworkDotnet.Context;
+using EntityframeworkDotnet.Context.DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,10 +11,18 @@ namespace EntityframeworkDotnet.Controllers
     public class CategoryController : Controller
     {
         fastfoodEntities dbentity = new fastfoodEntities();
+        private _IAllRepo<category> interfaceobj;
+
+        public CategoryController()
+        {
+            this.interfaceobj = new AllRepo<category>();
+        }
+
         // GET: Category
         public ActionResult Index()
         {
-            return View();
+            //return View(from m in interfaceobj.GetModel() select m);
+            return View(interfaceobj.GetModel());
         }
 
         // GET: Category/Details/5
@@ -37,8 +46,13 @@ namespace EntityframeworkDotnet.Controllers
                 category cmodel = new category();
                 cmodel.catagory_name = cat.catagory_name;
 
-                dbentity.categories.Add(cmodel);
-                dbentity.SaveChanges();
+                //using interface and repo
+                interfaceobj.InsertModel(cmodel);
+                interfaceobj.save();
+
+                //using entity
+                //dbentity.categories.Add(cmodel);
+                //dbentity.SaveChanges();
                 return Json(new { status = true, msg = "Saved successfully" });
             }
             catch (Exception ex)
@@ -50,17 +64,19 @@ namespace EntityframeworkDotnet.Controllers
         // GET: Category/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var CatById = interfaceobj.GetModelById(id);
+            return View(CatById);
         }
 
         // POST: Category/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, category collection)
         {
             try
             {
                 // TODO: Add update logic here
-
+                interfaceobj.UpdateModel(collection);
+                interfaceobj.save();
                 return RedirectToAction("Index");
             }
             catch
@@ -72,17 +88,22 @@ namespace EntityframeworkDotnet.Controllers
         // GET: Category/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var CatById = interfaceobj.GetModelById(id);
+            return View(CatById);
         }
 
         // POST: Category/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id, category collection)
         {
             try
             {
-                // TODO: Add delete logic here
+                collection.isDeleted = true;
+                //category catmodel = new category();
+                //catmodel.id = collection.id;
 
+                interfaceobj.UpdateModel(collection);
+                interfaceobj.save();
                 return RedirectToAction("Index");
             }
             catch

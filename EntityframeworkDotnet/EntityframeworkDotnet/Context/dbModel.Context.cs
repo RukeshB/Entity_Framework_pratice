@@ -28,5 +28,7 @@ namespace EntityframeworkDotnet.Context
         public virtual DbSet<category> categories { get; set; }
         public virtual DbSet<Food> Foods { get; set; }
         public virtual DbSet<size> sizes { get; set; }
+
+        public System.Data.Entity.DbSet<EntityframeworkDotnet.Context.metadata.categoryMetadata> categoryMetadatas { get; set; }
     }
 }
