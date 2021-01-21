@@ -14,7 +14,7 @@ namespace EntityframeworkDotnet.Context
     }
 
     [MetadataType(typeof(categoryMetadata))]
-    public partial class cacategory
+    public partial class category
     {
 
     }

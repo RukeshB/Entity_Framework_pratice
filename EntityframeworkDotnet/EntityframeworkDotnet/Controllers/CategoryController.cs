@@ -21,7 +21,7 @@ namespace EntityframeworkDotnet.Controllers
         // GET: Category
         public ActionResult Index()
         {
-            //return View(from m in interfaceobj.GetModel() select m);
+            
             return View(interfaceobj.GetModel().Where(x => x.isDeleted == false));
         }
 
@@ -117,12 +117,12 @@ namespace EntityframeworkDotnet.Controllers
             return View();
         }
 
-        public ActionResult parialview1()
+        public PartialViewResult parialview1()
         {
             return PartialView("_TryPartialView");
         }
 
-        public ActionResult parialview2()
+        public PartialViewResult parialview2()
         {
             return PartialView("_partialview2");
         }
