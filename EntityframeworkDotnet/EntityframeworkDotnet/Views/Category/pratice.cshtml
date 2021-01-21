@@ -31,6 +31,12 @@
                 <span class="hidden-xs">Render Partial View</span>
             </a>
         </li>
+        <li class="">
+            <a href="#renderaction" data-toggle="tab" aria-expanded="true">
+                <span class="visible-xs"><i class="fa fa-user"></i></span>
+                <span class="hidden-xs">Render Partial View</span>
+            </a>
+        </li>
     </ul>
     <div class="tab-content">
         <div class="tab-pane active" id="jquery_add">
@@ -100,6 +106,14 @@
             <br />
             @{
                 Html.RenderPartial("_TryPartialView");
+            }
+        </div>
+        <div class="tab-pane" id="renderaction">
+            @Html.Action("parialview1", "Category")
+            <br />
+            <br />
+            @{
+                Html.RenderAction("parialview2", "Category");
             }
         </div>
     </div>

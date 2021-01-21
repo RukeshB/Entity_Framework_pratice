@@ -116,5 +116,15 @@ namespace EntityframeworkDotnet.Controllers
         {
             return View();
         }
+
+        public ActionResult parialview1()
+        {
+            return PartialView("_TryPartialView");
+        }
+
+        public ActionResult parialview2()
+        {
+            return PartialView("_partialview2");
+        }
     }
 }
