@@ -109,12 +109,34 @@
             }
         </div>
         <div class="tab-pane" id="renderaction">
-            @Html.Action("parialview1", "Category")
-            <br />
-            <br />
-            @{
-                Html.RenderAction("parialview2", "Category");
-            }
+            <div class="col">
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#pview1" data-toggle="tab" aria-expanded="false">
+                            <span class="visible-xs"><i class="fa fa-home"></i></span>
+                            <span class="hidden-xs"> partial view 1</span>
+                        </a>
+                    </li>
+
+                    <li class="">
+                        <a href="#pview2" data-toggle="tab" aria-expanded="false">
+                            <span class="hidden-xs"> partial view 2</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="tab-content">
+                <div class="tab-pane" id="pview1">
+                    @Html.Action("parialview1", "Category")
+                </div>
+
+                <div class="tab-pane" id="pview2">
+                    @{
+                        Html.RenderAction("parialview2", "Category");
+                    }
+                </div>
+            </div>
         </div>
     </div>
 </div>
